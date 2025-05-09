@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Mouse Pointer Zoom",
+    "version": "1.0",
+    "description": "Enhances instructional videos with spotlight and arrow drawing features",
+    "permissions": ["scripting", "activeTab", "tabs"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "commands": {
+      "start_arrow_draw": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+L"
+        },
+        "description": "Start drawing arrow"
+      },
+      "zoom_in": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+Z"
+        },
+        "description": "Activate spotlight"
+      }
+    }
+}
